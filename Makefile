@@ -13,5 +13,5 @@ restart:
 	@make up
 web:
 	docker compose exec web bash
-db:
+mysql:
 	docker compose exec db bash
