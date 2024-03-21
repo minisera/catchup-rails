@@ -1,4 +1,3 @@
-# FROM：使用するイメージ、バージョン
 FROM ruby:3.1
 ARG RUBYGEMS_VERSION=3.3.20
 RUN mkdir /app
