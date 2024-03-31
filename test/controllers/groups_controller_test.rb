@@ -5,10 +5,11 @@ class GroupsControllerTest < ActionDispatch::IntegrationTest
     @group = groups(:one)
   end
 
-  test "should get index" do
+  test "グループ一覧を取得する" do
     get groups_url, as: :json
     assert_response :success
   end
+
 
   test "should create group" do
     assert_difference("Group.count") do
