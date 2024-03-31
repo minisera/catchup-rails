@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[ show update destroy ]
+  before_action :set_group, only: %i[show update destroy]
 
   # GET /groups
   def index
@@ -10,7 +10,11 @@ class GroupsController < ApplicationController
 
   # GET /groups/1
   def show
-    render json: @group
+    # render json: @group
+
+    if stale?(last_modified: @group.updated_at)
+      render json: @group
+    end
   end
 
   # curl -X POST -H "Content-Type: application/json" -d '{"name": "test"}' http://localhost:3001/groups
@@ -40,13 +44,14 @@ class GroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = Group.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def group_params
-      params.require(:group).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def group_params
+    params.require(:group).permit(:name)
+  end
 end
