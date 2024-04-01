@@ -5,7 +5,7 @@ class GroupsControllerTest < ActionDispatch::IntegrationTest
     @group = groups(:one)
   end
 
-  test "グループ一覧を取得する" do
+  test 'グループ一覧を取得する' do
     get groups_url, as: :json
     assert_response :success
   end
