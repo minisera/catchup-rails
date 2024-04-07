@@ -1,7 +1,7 @@
 up:
 	docker compose up -d
 build:
-	docker compose build
+	docker compose build --no-cache
 start:
 	docker compose start
 stop:
