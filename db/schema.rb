@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_01_132552) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_03_101514) do
   create_table "books", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.string "author"
@@ -33,5 +33,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_01_132552) do
     t.index ["group_id"], name: "index_members_on_group_id"
   end
 
+  create_table "variations", charset: "utf8mb4", force: :cascade do |t|
+    t.string "kind"
+    t.bigint "book_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_variations_on_book_id"
+  end
+
   add_foreign_key "members", "groups"
+  add_foreign_key "variations", "books"
 end
