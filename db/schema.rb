@@ -10,12 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_11_000542) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_20_023945) do
+  create_table "accounts", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "balance", null: false, comment: "残高"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "books", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.string "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "user_id"
+    t.integer "number", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_cards_on_account_id"
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "groups", charset: "utf8mb4", force: :cascade do |t|
