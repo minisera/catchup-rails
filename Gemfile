@@ -43,10 +43,11 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec-rails"
   gem "factory_bot_rails"
-  gem 'solargraph'
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-performance', require: false
+  gem "solargraph"
+  gem "rubocop", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-performance", require: false
+  gem "standard", require: false
 end
 
 group :development do
