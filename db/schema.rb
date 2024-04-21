@@ -25,8 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_20_023945) do
   end
 
   create_table "cards", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "account_id"
-    t.bigint "user_id"
+    t.bigint "account_id", null: false
+    t.bigint "user_id", null: false
     t.integer "number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -64,6 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_20_023945) do
     t.index ["book_id"], name: "index_variations_on_book_id"
   end
 
+  add_foreign_key "cards", "accounts"
+  add_foreign_key "cards", "users"
   add_foreign_key "members", "groups"
   add_foreign_key "variations", "books"
 end
