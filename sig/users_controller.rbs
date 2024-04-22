@@ -1,3 +1,6 @@
 class UsersController
+  @user: untyped
+  @users: untyped
+
   def index: -> untyped
 end
