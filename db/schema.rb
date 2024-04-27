@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_20_023945) do
   create_table "cards", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "account_id", null: false
     t.bigint "user_id", null: false
-    t.integer "number", null: false
+    t.string "number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_cards_on_account_id"
