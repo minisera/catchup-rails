@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   def create
-    account = Account.create(balance: 0)
+    account = Account.create
     card = Card.new(
       account_id: account.id,
       user_id: params[:user_id]
