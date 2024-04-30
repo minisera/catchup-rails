@@ -15,6 +15,8 @@ RSpec.describe "Payments", type: :request do
           post "http://localhost:3001/users/#{user.id}/payments",
             params: {card_number: 1234567, amount: 1000}, as: :json
         }.to change(Payment, :count).by(1)
+
+        expect(Account.find(account.id).balance).to eq(4000)
       end
     end
   end

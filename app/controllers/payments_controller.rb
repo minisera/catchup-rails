@@ -5,6 +5,8 @@ class PaymentsController < ApplicationController
 
     if params[:amount] <= account.balance
       payment = Payment.create(amount: params[:amount], card_id: card.id)
+      account.balance -= params[:amount]
+      account.save
       render json: payment, status: :created
     else
       render status: :unprocessable_entity
