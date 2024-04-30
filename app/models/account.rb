@@ -3,7 +3,7 @@ class Account < ApplicationRecord
 
   def initialize(attributes = {})
     super
-    set_balance
+    set_balance(balance)
   end
 
   def set_balance(amount = 0)

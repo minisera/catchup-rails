@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_20_023945) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_30_024858) do
   create_table "accounts", charset: "utf8mb4", force: :cascade do |t|
     t.integer "balance", null: false, comment: "残高"
     t.datetime "created_at", null: false
@@ -47,6 +47,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_20_023945) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_members_on_group_id"
+  end
+
+  create_table "payments", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "card_id", null: false
+    t.integer "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_payments_on_card_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|

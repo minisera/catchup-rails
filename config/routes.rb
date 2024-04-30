@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post "users", to: "users#create"
   get "users", to: "users#index"
   post "users/:user_id/cards", to: "cards#create"
+  post "users/:user_id/payments", to: "payments#payment"
 end
